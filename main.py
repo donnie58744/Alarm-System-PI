@@ -1,11 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 import sys
-from mfrc522 import SimpleMFRC522
 import json
 import requests
-
-reader = SimpleMFRC522()
 
 greenLight = 40
 yellowLight = 16
@@ -68,6 +65,8 @@ def loop():
             GPIO.output(blueLight, GPIO.LOW)
             time.sleep(1.5)
             GPIO.output(redLight, GPIO.LOW)
+
+            active = True
             
         if GPIO.input(yellowBtn) == GPIO.LOW:
             GPIO.output(yellowLight, GPIO.HIGH)
