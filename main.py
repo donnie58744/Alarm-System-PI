@@ -6,6 +6,8 @@ import json
 import requests
 from threading import Thread
 
+thread_running = True
+
 greenLight = 40
 yellowLight = 16
 blueLight = 31
@@ -43,7 +45,8 @@ def setup():
 
 def loop():
     global active
-    while True: 
+    global thread_running
+    while thread_running: 
         if GPIO.input(greenBtn)==GPIO.LOW:
             # Turn Off Lights
             GPIO.output(greenLight, GPIO.LOW)
@@ -87,14 +90,25 @@ def loop():
         sensor()
 
 def command():
-    userInput = input()
-
-    if (userInput == 'stop'):
-        exit()
+    global thread_running
+    
+    while True:
+        userInput = input()
+        print('User' +userInput)
+        
+        if (userInput == 'stop'):
+            print('STOPING')
+            thread_running = False
+            exit()
+        elif (userInput == 'login'):
+            print('Username:')
+            username = input()
+            print('Password:')
+            password = input()
+            print(username + '|' + password)
             
             
 def sensor():
-
     if GPIO.input(sensorPin)==GPIO.HIGH and active == True:
         GPIO.output(redLight,GPIO.HIGH)
         
@@ -120,5 +134,8 @@ if __name__ == '__main__':    # Program entrance
 
         t1.start()
         t2.start()
+        
+        t2.join()
+        
     except KeyboardInterrupt:   # Press ctrl-c to end the program.
         destroy()
