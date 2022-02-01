@@ -4,6 +4,7 @@ import time
 import sys
 import json
 import requests
+from threading import Thread
 
 greenLight = 40
 yellowLight = 16
@@ -84,7 +85,12 @@ def loop():
                 count = 0
             
         sensor()
-        
+
+def command():
+    userInput = input()
+
+    if (userInput == 'stop'):
+        exit()
             
             
 def sensor():
@@ -109,6 +115,10 @@ if __name__ == '__main__':    # Program entrance
     print ('Program is starting ... \n')
     setup()
     try:
-        loop()
+        t1 = Thread(target=loop)
+        t2 = Thread(target=command)
+
+        t1.start()
+        t2.start()
     except KeyboardInterrupt:   # Press ctrl-c to end the program.
         destroy()
