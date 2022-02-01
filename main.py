@@ -94,7 +94,7 @@ def command():
             
             
 def sensor():
-    print('Searching...')
+
     if GPIO.input(sensorPin)==GPIO.HIGH and active == True:
         GPIO.output(redLight,GPIO.HIGH)
         
