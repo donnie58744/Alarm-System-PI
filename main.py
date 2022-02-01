@@ -1,3 +1,4 @@
+from os import system
 import RPi.GPIO as GPIO
 import time
 import sys
@@ -83,9 +84,11 @@ def loop():
                 count = 0
             
         sensor()
+        
             
             
 def sensor():
+    print('Searching...')
     if GPIO.input(sensorPin)==GPIO.HIGH and active == True:
         GPIO.output(redLight,GPIO.HIGH)
         
