@@ -94,13 +94,13 @@ def command():
     
     while True:
         userInput = input()
-        print('User' +userInput)
-        
+
         if (userInput == 'stop'):
             print('STOPING')
             thread_running = False
             exit()
         elif (userInput == 'login'):
+            # Check user login
             print('Username:')
             username = input()
             print('Password:')
