@@ -19,6 +19,7 @@
 - Blue Light Pin: 31
 - Yellow Light Pin: 16
 - Red Light Pin: 12
+- Green Button Pin: 35
 - Yellow Button Pin: 37
 - Sensor Data Pin: 11
 
