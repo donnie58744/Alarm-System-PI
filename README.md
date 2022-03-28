@@ -29,6 +29,7 @@
 
 ### How To Use:
 
+- Edit the python file and change the slack_webhook varible to your slack webhook
 - Green Button: Starts a timer so you have time to leave the area
 - Yellow Button: Toggles the alarm on and off
 
