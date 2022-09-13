@@ -4,7 +4,6 @@
 ### Py Library Requirements:
 
 	pip install RPi.GPIO
-	pip install mfrc522
 	
 ### Circuit
 - Circiut can be found in the main dir, its called **Alarm-Sys-CIRCUIT.svg**
